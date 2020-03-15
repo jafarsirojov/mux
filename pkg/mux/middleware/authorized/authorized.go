@@ -10,7 +10,6 @@ import (
 func Authorized(roles []string, payload func(ctx context.Context) interface{}) func(next http.HandlerFunc) http.HandlerFunc {
 	return func(next http.HandlerFunc) http.HandlerFunc {
 		return func(writer http.ResponseWriter, request *http.Request) {
-			// security expressions
 			// TODO: || [ROLE_ADMIN, ROLE_MODERATOR] -> [ROLE_ADMIN, ROLE_USER]
 			// TODO: лучше убрать жёстку завязку на структуру token payload и определить либо интерфейс, либо reflection
 			auth := payload(request.Context()).(*token.Payload)

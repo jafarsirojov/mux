@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-type contextKey string // int?
+type contextKey string
 var payloadContextKey = contextKey("jwt")
 type Secret []byte
 
